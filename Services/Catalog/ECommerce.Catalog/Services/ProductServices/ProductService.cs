@@ -1,4 +1,5 @@
-﻿using ECommerce.Catalog.Entities.Common;
+﻿using ECommerce.Catalog.Entities;
+using ECommerce.Catalog.Entities.Common;
 using ECommerce.Catalog.Repositories;
 using ECommerce.Catalog.Settings;
 
