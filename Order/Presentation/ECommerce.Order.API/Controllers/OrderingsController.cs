@@ -23,5 +23,30 @@ namespace ECommerce.Order.API.Controllers
             await _mediator.Send(command);
             return Ok("Sipariş oluşturuldu.");
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var value = await _mediator.Send(new GetOrderingByIdQuery(id));
+            if(value is null)
+            {
+                return BadRequest("Sipariş bulunamadı.");
+            }
+            return Ok(value);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(UpdateOrderingCommand command)
+        {
+            await _mediator.Send(command);
+            return Ok("Sipariş güncellendi.");
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            await _mediator.Send(new RemoveOrderingCommand(id));
+            return Ok("Sipariş silindi.");
+        }
     }
 }
