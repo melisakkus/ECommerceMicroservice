@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "Services\\Catalog\\ECommerce.Catalog\\ECommerce.Catalog.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Frontends\\ECommerce.WebUI\\ECommerce.WebUI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "IdentityServer\\ECommerce.IdentityServer\\ECommerce.IdentityServer.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

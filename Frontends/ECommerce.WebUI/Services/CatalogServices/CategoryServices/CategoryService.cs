@@ -1,10 +1,19 @@
 ﻿using ECommerce.WebUI.DTOs.CatalogDtos.CategoryDtos;
+using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
 namespace ECommerce.WebUI.Services.CatalogServices.CategoryServices
 {
     public class CategoryService(HttpClient _client) : ICategoryService
     {
+        //private readonly HttpClient _client;
+
+        //public CategoryService(HttpClient client)
+        //{
+        //    _client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer","token");
+        //    _client = client;
+        //}
+
         public async Task CreateAsync(CreateCategoryDto createCategoryDto)
         {
             await _client.PostAsJsonAsync("categories", createCategoryDto);

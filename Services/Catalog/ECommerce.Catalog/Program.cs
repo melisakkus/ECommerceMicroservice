@@ -26,10 +26,10 @@ builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(GenericRepository<>));
 
-//builder.Services.AddControllers(opt =>
-//{
-//    opt.Filters.Add(new AuthorizeFilter());
-//});
+builder.Services.AddControllers(opt =>
+{
+    opt.Filters.Add(new AuthorizeFilter());
+});
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
