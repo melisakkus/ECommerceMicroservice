@@ -22,6 +22,7 @@ builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
     opt.BaseAddress = new Uri(serviceApiSetting.Catalog.Path);
 }).AddHttpMessageHandler<TokenHandler>();
 
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
                 opt =>

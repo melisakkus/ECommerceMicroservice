@@ -13,6 +13,10 @@
       {
         "Path": "IdentityServer\\ECommerce.IdentityServer\\ECommerce.IdentityServer.csproj",
         "Action": "Start"
+      },
+      {
+        "Path": "Services\\Message\\ECommerce.Message\\ECommerce.Message.csproj",
+        "Action": "Start"
       }
     ]
   }
