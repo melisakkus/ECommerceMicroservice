@@ -1,12 +1,16 @@
 using ECommerce.WebUI.Handlers;
+using ECommerce.WebUI.Services.BasketServices;
 using ECommerce.WebUI.Services.CatalogServices.CategoryServices;
 using ECommerce.WebUI.Services.IdentityServices;
+using ECommerce.WebUI.Services.ProductServices;
 using ECommerce.WebUI.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+
 
 builder.Services.Configure<ServiceApiSettings>(builder.Configuration.GetSection(nameof(ServiceApiSettings)));
 builder.Services.Configure<ClientSettings>(builder.Configuration.GetSection(nameof(ClientSettings)));
@@ -22,6 +26,15 @@ builder.Services.AddHttpClient<ICategoryService, CategoryService>(opt =>
     opt.BaseAddress = new Uri(serviceApiSetting.Catalog.Path);
 }).AddHttpMessageHandler<TokenHandler>();
 
+builder.Services.AddHttpClient<IProductService, ProductService>(opt =>
+{
+    opt.BaseAddress = new Uri(serviceApiSetting.Catalog.Path);
+}).AddHttpMessageHandler<TokenHandler>();
+
+builder.Services.AddHttpClient<IBasketService, BasketService>(opt =>
+{
+    opt.BaseAddress = new Uri(serviceApiSetting.Basket.Path);
+}).AddHttpMessageHandler<TokenHandler>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,

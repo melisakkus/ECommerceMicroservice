@@ -1,0 +1,42 @@
+﻿@model BasketDto
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sepetim</h1>
+@if (!Model.BasketItems.Any())
+{
+    <div class="alert alert-info">Sepetinizde Ürün Yok
+        <a href="/Home/Index" class="btn btn-primary">Ürünlere Git</a>
+    </div>
+}
+else
+{
+    int count = 0;
+    <table class="table table-striped">
+
+        <tr>
+            <th>#</th>
+            <th>Ürün Adı</th>
+            <th>Fiyat</th>
+            <th>Adet</th>
+            <th>Toplam</th>
+            <th>İşlemler</th>
+        </tr>
+
+        @foreach (var item in Model.BasketItems)
+        {
+            count++;
+            <tr>
+                <th>@count</th>
+                <td>@item.ProductName</td>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+                <td>@Model.TotalPrice</td>
+                <td>
+                    <a href="/Basket/DeleteBasketItem/@item.ProductId" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+}

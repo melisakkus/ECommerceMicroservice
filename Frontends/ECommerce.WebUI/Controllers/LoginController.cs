@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.WebUI.Controllers
 {
-    public class LoginController(IIdentityService _identityService) : Controller
+    public class LoginController(IIdentityService _identityService, IHttpContextAccessor _contextAccessor) : Controller
     {
         public IActionResult Index()
         {
@@ -20,6 +20,8 @@ namespace ECommerce.WebUI.Controllers
                 ModelState.AddModelError("", "Kullanıcı Adı veya Şifre Hatalı");
                 return View(signInDto);
             }
+
+            var user = _contextAccessor.HttpContext.User.Claims;
             return RedirectToAction("Index", "Category");
         }
 

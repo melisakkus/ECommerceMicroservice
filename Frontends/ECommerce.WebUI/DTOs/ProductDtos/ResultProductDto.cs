@@ -1,4 +1,4 @@
-﻿namespace ECommerce.Catalog.DTOs.ProductDtos
+﻿namespace ECommerce.WebUI.DTOs.ProductDtos
 {
     public class ResultProductDto
     {

@@ -15,7 +15,7 @@
         "Action": "Start"
       },
       {
-        "Path": "Services\\Message\\ECommerce.Message\\ECommerce.Message.csproj",
+        "Path": "Services\\Basket\\ECommerce.Basket\\ECommerce.Basket.csproj",
         "Action": "Start"
       }
     ]
